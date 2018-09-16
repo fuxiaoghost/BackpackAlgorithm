@@ -49,6 +49,7 @@
                 lbl.textColor = [UIColor colorWithWhite:0.3 alpha:1];
                 lbl.layer.borderColor = UIColor.blackColor.CGColor;
                 lbl.layer.borderWidth = 0.5;
+                lbl.backgroundColor = [self randomColor];
                 [self addSubview:lbl];
                 NSInteger itemWidth = [vws[idx] intValue];
                 lbl.frame = CGRectMake(offsetX, offsetY, itemWidth, 30);
@@ -63,6 +64,13 @@
     }
 }
 
+- (UIColor *)randomColor
+{
+    CGFloat r = [self randomNumber:0 to:100]/100.0;
+    CGFloat g = [self randomNumber:0 to:100]/100.0;
+    CGFloat b = [self randomNumber:0 to:100]/100.0;
+    return [UIColor colorWithRed:r green:g blue:b alpha:1];
+}
 
 /**
  随机产生一组Tags，仅限测试用
